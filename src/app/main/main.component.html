@@ -1,0 +1,14 @@
+<div class="comp main">
+    <p>main</p>        
+    <button (click)="loadEmployees()">Lade...</button>
+    <app-employee *ngFor="let empl of employees" [employee]="empl"></app-employee>
+    <br />
+    <button (click)="startTimer()">Start timer</button> 
+    <br />
+    {{ counter }}
+    <br />
+    <button (click)="stopTimer()">Stop timer</button>
+    <br />
+</div>
+
+{{ blink() }}  

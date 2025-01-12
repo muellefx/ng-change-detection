@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.comp {
+    border: 1px black solid;
+    padding: 5px;
+    margin: 2px;
+}
