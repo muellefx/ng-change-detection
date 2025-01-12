@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BaseComponent } from '../base-component';
+import { LoginData } from '../login-data.interface';
 
 @Component({
   selector: 'app-footer',
@@ -10,5 +11,5 @@ import { BaseComponent } from '../base-component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent extends BaseComponent {
-
+  @Input() loginData : LoginData | null = {loggedIn: false};
 }
