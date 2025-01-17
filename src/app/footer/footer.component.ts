@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { BaseComponent } from '../base-component';
 import { LoginData } from '../login-data.interface';
 
@@ -11,5 +11,5 @@ import { LoginData } from '../login-data.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent extends BaseComponent {
-  @Input() loginData : LoginData | null = {loggedIn: false};
+  loginData = input<LoginData|null>({loggedIn: false});
 }

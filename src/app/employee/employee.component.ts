@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Employee } from '../employee.interface';
 import { BaseComponent } from '../base-component';
 
@@ -11,13 +11,13 @@ import { BaseComponent } from '../base-component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmployeeComponent extends BaseComponent {
-  @Input({ required: true }) employee! : Employee;
+  employee = input.required<Employee>();
 
   increaseAge() {
-    this.employee.age += 1;
+    this.employee().age += 1;
   }
   
   decreaseAge() {
-    this.employee.age -= 1;
+    this.employee().age -= 1;
   }
 }
