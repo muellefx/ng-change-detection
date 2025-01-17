@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { BaseComponent } from '../base-component';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee.interface';
@@ -14,9 +14,9 @@ import { NgFor } from '@angular/common';
 })
 export class MainComponent extends BaseComponent implements OnInit {
 
-  employees : Employee[] = [];
+  employees = signal<Employee[]>([]);
   countInterval: any;
-  counter = 0;
+  counter = signal<number>(0);
 
   constructor(private employeeService: EmployeeService) {  
     super();
@@ -28,14 +28,14 @@ export class MainComponent extends BaseComponent implements OnInit {
 
   async loadEmployees() {
     console.log('loading employees...');
-    this.employees = await this.employeeService.loadEmployeesAsPromise();  
+    this.employees.set(await this.employeeService.loadEmployeesAsPromise());  
     console.log('... employees loaded.');
     console.log(this.employees);
   }
 
   startTimer() {
-    this.counter = 0;
-    this.countInterval = setInterval(() => { this.counter+=1; }, 2000 );
+    this.counter.set(0);
+    this.countInterval = setInterval(() => { this.counter.set(this.counter()+1); }, 2000 );
   }
 
   stopTimer() {
