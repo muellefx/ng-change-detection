@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SideComponent } from "../side/side.component";
 import { MainComponent } from "../main/main.component";
 import { TopComponent } from "../top/top.component";
@@ -10,7 +10,8 @@ import { BaseComponent } from '../base-component';
   standalone: true,
   imports: [SideComponent, MainComponent, TopComponent, FooterComponent],
   templateUrl: './container.component.html',
-  styleUrl: './container.component.css'
+  styleUrl: './container.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContainerComponent extends BaseComponent {
 

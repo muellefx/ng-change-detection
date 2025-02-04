@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Employee } from '../employee.interface';
 import { BaseComponent } from '../base-component';
 
@@ -7,7 +7,9 @@ import { BaseComponent } from '../base-component';
   standalone: true,
   imports: [],
   templateUrl: './employee.component.html',
-  styleUrl: './employee.component.css'})
+  styleUrl: './employee.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
 export class EmployeeComponent extends BaseComponent {
   @Input({ required: true }) employee! : Employee;
 

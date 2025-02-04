@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { BaseComponent } from '../base-component';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee.interface';
@@ -10,7 +10,8 @@ import { NgFor } from '@angular/common';
   standalone: true,
   imports: [EmployeeComponent, NgFor],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  styleUrl: './main.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent extends BaseComponent implements OnInit {
 

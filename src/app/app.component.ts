@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ContainerComponent } from './container/container.component';
 
 @Component({
@@ -6,7 +6,8 @@ import { ContainerComponent } from './container/container.component';
   standalone: true,
   imports: [ContainerComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   title = 'ng-change-detection';

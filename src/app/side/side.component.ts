@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent } from '../base-component';
 
 @Component({
@@ -6,7 +6,8 @@ import { BaseComponent } from '../base-component';
   standalone: true,
   imports: [],
   templateUrl: './side.component.html',
-  styleUrl: './side.component.css'
+  styleUrl: './side.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SideComponent extends BaseComponent {
 
